@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>10. Epidemics on networks &#8212; Complexity in social systems</title>
+    <title>11. Epidemics on networks &#8212; Complexity in social systems</title>
   
   
   
@@ -19,35 +19,37 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -55,15 +57,19 @@
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '3-epidemic-spreading/nb11_epidemics_on_networks';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11. Synchronization" href="nb12_synchronization.html" />
-    <link rel="prev" title="9. Epidemic modeling, deterministic and stochastic models" href="nb10_epidemic_processes.html" />
+    <link rel="next" title="12. Synchronization" href="nb12_synchronization.html" />
+    <link rel="prev" title="10. Epidemic modeling, deterministic and stochastic models" href="nb10_epidemic_processes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -73,9 +79,10 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -116,14 +123,11 @@
 </form></div>
   </div>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -157,18 +161,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -185,40 +178,41 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Network analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb04_powerlaw_fitting.html">3. How to fit a power law distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb05_network_analysis.html">4. Basics of network analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb06_random_graphs.html">5. Erdos-Renyi random networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb07_network_assortativity.html">6. Network assortativity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb08_network_robustness.html">7. Network robustness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb03_NetworkX_visualization.html">3. Introduction to NetworkX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb04_powerlaw_fitting.html">4. How to fit a power law distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb05_network_analysis.html">5. Basics of network analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb06_random_graphs.html">6. Erdos-Renyi random networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb07_network_assortativity.html">7. Network assortativity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2-networkx/nb08_network_robustness.html">8. Network robustness</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical processes</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="nb09_random_walks.html">8. Random walks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nb10_epidemic_processes.html">9. Epidemic modeling, deterministic and stochastic models</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Epidemics on networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nb12_synchronization.html">11. Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb09_random_walks.html">9. Random walks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb10_epidemic_processes.html">10. Epidemic modeling, deterministic and stochastic models</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Epidemics on networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb12_synchronization.html">12. Synchronization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Social contagion</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb13_axelrod_model.html">12. Axelrod model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb14_Higher_order_naming_game.html">13. Higher-order Naming Game</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb15_Simplagion_on_RSC_model.html">14. Simplagion Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb13_axelrod_model.html">13. Axelrod model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb14_Higher_order_naming_game.html">14. Higher-order Naming Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb15_Simplagion_on_RSC_model.html">15. Simplagion Model</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Temporal Networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb14_epidemics_temporal_networks.html">15. Epidemics on temporal networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb15_temporal_networks_part2.html">16. Temporal networks libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb16_infer_phases_temporal_networks.html">17. Inferring biological phases by clustering snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb14_epidemics_temporal_networks.html">16. Epidemics on temporal networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb15_temporal_networks_part2.html">17. Temporal networks libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb16_infer_phases_temporal_networks.html">18. Inferring biological phases by clustering snapshots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Community detection</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../6-community-detection/nb17_community_detection.html">18. Community detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../6-community-detection/nb18_partition_comparison.html">19. Comparing Partitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6-community-detection/nb17_community_detection.html">19. Community detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6-community-detection/nb18_partition_comparison.html">20. Comparing Partitions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypergraphs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb19_xgi_quickstart.html">20. Getting started with XGI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb20_case_study_zhang2022.html">21. Case study: sync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb19_xgi_quickstart.html">21. Getting started with XGI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb20_case_study_zhang2022.html">22. Case study: sync</a></li>
 </ul>
 
     </div>
@@ -463,16 +457,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-homogeneous-networks">10.1. Epidemic threshold for homogeneous networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-an-sir-process">10.1.1. Simulations of an SIR process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-homogeneous-networks">11.1. Epidemic threshold for homogeneous networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-an-sir-process">11.1.1. Simulations of an SIR process</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-barabasi-albert-model-networks">10.2. Epidemic threshold for Barabàsi-Albert model networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">10.2.1. Simulations of an SIR process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-barabasi-albert-model-networks">11.2. Epidemic threshold for Barabàsi-Albert model networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">11.2.1. Simulations of an SIR process</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-configuration-model-networks">10.3. Epidemic threshold for configuration model networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.3.1. Simulations of an SIR process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-configuration-model-networks">11.3. Epidemic threshold for configuration model networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.3.1. Simulations of an SIR process</a></li>
 </ul>
 </li>
 </ul>
@@ -484,10 +478,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="epidemics-on-networks">
-<h1><span class="section-number">10. </span>Epidemics on networks<a class="headerlink" href="#epidemics-on-networks" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Epidemics on networks<a class="headerlink" href="#epidemics-on-networks" title="Permalink to this heading">#</a></h1>
 <p>We use the Python library <a class="reference external" href="https://github.com/springer-math/Mathematics-of-Epidemics-on-Networks">“Epidemics on Networks” developed by Kiss, Miller &amp; Simon</a>.</p>
 <p>The library must be installed using pip:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install EoN
@@ -525,7 +519,7 @@ document.write(`
 </div>
 </div>
 <section id="epidemic-threshold-for-homogeneous-networks">
-<h2><span class="section-number">10.1. </span>Epidemic threshold for homogeneous networks<a class="headerlink" href="#epidemic-threshold-for-homogeneous-networks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Epidemic threshold for homogeneous networks<a class="headerlink" href="#epidemic-threshold-for-homogeneous-networks" title="Permalink to this heading">#</a></h2>
 <p>We simulate the spread of an SIR on an Erdos-Renyi graph with constant recovery rate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -620,7 +614,7 @@ Average degree:  19.9168
 </div>
 </div>
 <section id="simulations-of-an-sir-process">
-<h3><span class="section-number">10.1.1. </span>Simulations of an SIR process<a class="headerlink" href="#simulations-of-an-sir-process" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.1.1. </span>Simulations of an SIR process<a class="headerlink" href="#simulations-of-an-sir-process" title="Permalink to this heading">#</a></h3>
 <p>We simulate 20 realizations of a SIR model for increasing values of <span class="math notranslate nohighlight">\(\lambda\)</span> using the <a class="reference external" href="https://epidemicsonnetworks.readthedocs.io/en/latest/functions/EoN.fast_SIR.html?highlight=fast_SIR">fast_SIR function of EoN</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1188,7 +1182,7 @@ Average degree:  19.9168
 </section>
 </section>
 <section id="epidemic-threshold-for-barabasi-albert-model-networks">
-<h2><span class="section-number">10.2. </span>Epidemic threshold for Barabàsi-Albert model networks<a class="headerlink" href="#epidemic-threshold-for-barabasi-albert-model-networks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>Epidemic threshold for Barabàsi-Albert model networks<a class="headerlink" href="#epidemic-threshold-for-barabasi-albert-model-networks" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -1282,7 +1276,7 @@ Average degree:  19.9800
 </div>
 </div>
 <section id="id1">
-<h3><span class="section-number">10.2.1. </span>Simulations of an SIR process<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.2.1. </span>Simulations of an SIR process<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>We simulate 20 realizations of a SIR model for increasing values of <span class="math notranslate nohighlight">\(\lambda\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1508,7 +1502,7 @@ Average degree:  19.9800
 </section>
 </section>
 <section id="epidemic-threshold-for-configuration-model-networks">
-<h2><span class="section-number">10.3. </span>Epidemic threshold for configuration model networks<a class="headerlink" href="#epidemic-threshold-for-configuration-model-networks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Epidemic threshold for configuration model networks<a class="headerlink" href="#epidemic-threshold-for-configuration-model-networks" title="Permalink to this heading">#</a></h2>
 <p>We can use the configuration model to generate a network with a given power-law degree distribution. By setting <span class="math notranslate nohighlight">\(\gamma=2.1\)</span>, we expect to see more fluctuations in the degree distribution.</p>
 <p>We create a function that samples from a power-law distribution between <span class="math notranslate nohighlight">\(k_{min}\)</span> and <span class="math notranslate nohighlight">\(k_{max}\)</span> with exponent <span class="math notranslate nohighlight">\(\gamma\)</span></p>
 <div class="cell docutils container">
@@ -1673,7 +1667,7 @@ Average degree:  10.8044
 </div>
 </div>
 <section id="id2">
-<h3><span class="section-number">10.3.1. </span>Simulations of an SIR process<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.3.1. </span>Simulations of an SIR process<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>We simulate 100 realizations of a SIR model for increasing values of <span class="math notranslate nohighlight">\(\lambda\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1773,7 +1767,7 @@ Average degree:  10.8044
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Epidemic modeling, deterministic and stochastic models</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Epidemic modeling, deterministic and stochastic models</p>
       </div>
     </a>
     <a class="right-next"
@@ -1781,7 +1775,7 @@ Average degree:  10.8044
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Synchronization</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Synchronization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1794,23 +1788,22 @@ Average degree:  10.8044
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-homogeneous-networks">10.1. Epidemic threshold for homogeneous networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-an-sir-process">10.1.1. Simulations of an SIR process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-homogeneous-networks">11.1. Epidemic threshold for homogeneous networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-an-sir-process">11.1.1. Simulations of an SIR process</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-barabasi-albert-model-networks">10.2. Epidemic threshold for Barabàsi-Albert model networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">10.2.1. Simulations of an SIR process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-barabasi-albert-model-networks">11.2. Epidemic threshold for Barabàsi-Albert model networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">11.2.1. Simulations of an SIR process</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-configuration-model-networks">10.3. Epidemic threshold for configuration model networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.3.1. Simulations of an SIR process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold-for-configuration-model-networks">11.3. Epidemic threshold for configuration model networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.3.1. Simulations of an SIR process</a></li>
 </ul>
 </li>
 </ul>
@@ -1861,8 +1854,8 @@ By M. Lucas, L. Dall'Amico
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

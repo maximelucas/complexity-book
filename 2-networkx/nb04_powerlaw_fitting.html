@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3. How to fit a power law distribution &#8212; Complexity in social systems</title>
+    <title>4. How to fit a power law distribution &#8212; Complexity in social systems</title>
   
   
   
@@ -19,35 +19,37 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -55,15 +57,19 @@
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '2-networkx/nb04_powerlaw_fitting';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Basics of network analysis" href="nb05_network_analysis.html" />
-    <link rel="prev" title="Introduction to NetworkX" href="nb03_NetworkX_visualization.html" />
+    <link rel="next" title="5. Basics of network analysis" href="nb05_network_analysis.html" />
+    <link rel="prev" title="3. Introduction to NetworkX" href="nb03_NetworkX_visualization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -73,9 +79,10 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -116,14 +123,11 @@
 </form></div>
   </div>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -157,18 +161,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -185,40 +178,41 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Network analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. How to fit a power law distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nb05_network_analysis.html">4. Basics of network analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nb06_random_graphs.html">5. Erdos-Renyi random networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nb07_network_assortativity.html">6. Network assortativity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nb08_network_robustness.html">7. Network robustness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb03_NetworkX_visualization.html">3. Introduction to NetworkX</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. How to fit a power law distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb05_network_analysis.html">5. Basics of network analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb06_random_graphs.html">6. Erdos-Renyi random networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb07_network_assortativity.html">7. Network assortativity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb08_network_robustness.html">8. Network robustness</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical processes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb09_random_walks.html">8. Random walks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb10_epidemic_processes.html">9. Epidemic modeling, deterministic and stochastic models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb11_epidemics_on_networks.html">10. Epidemics on networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb12_synchronization.html">11. Synchronization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb09_random_walks.html">9. Random walks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb10_epidemic_processes.html">10. Epidemic modeling, deterministic and stochastic models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb11_epidemics_on_networks.html">11. Epidemics on networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb12_synchronization.html">12. Synchronization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Social contagion</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb13_axelrod_model.html">12. Axelrod model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb14_Higher_order_naming_game.html">13. Higher-order Naming Game</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb15_Simplagion_on_RSC_model.html">14. Simplagion Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb13_axelrod_model.html">13. Axelrod model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb14_Higher_order_naming_game.html">14. Higher-order Naming Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4-social-contagion/nb15_Simplagion_on_RSC_model.html">15. Simplagion Model</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Temporal Networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb14_epidemics_temporal_networks.html">15. Epidemics on temporal networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb15_temporal_networks_part2.html">16. Temporal networks libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb16_infer_phases_temporal_networks.html">17. Inferring biological phases by clustering snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb14_epidemics_temporal_networks.html">16. Epidemics on temporal networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb15_temporal_networks_part2.html">17. Temporal networks libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5-temporal-networks/nb16_infer_phases_temporal_networks.html">18. Inferring biological phases by clustering snapshots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Community detection</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../6-community-detection/nb17_community_detection.html">18. Community detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../6-community-detection/nb18_partition_comparison.html">19. Comparing Partitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6-community-detection/nb17_community_detection.html">19. Community detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6-community-detection/nb18_partition_comparison.html">20. Comparing Partitions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypergraphs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb19_xgi_quickstart.html">20. Getting started with XGI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb20_case_study_zhang2022.html">21. Case study: sync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb19_xgi_quickstart.html">21. Getting started with XGI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb20_case_study_zhang2022.html">22. Case study: sync</a></li>
 </ul>
 
     </div>
@@ -463,15 +457,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-powerlaw-package">3.1. The Powerlaw package</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ca-astroph">3.2. Analysis of ca-AstroPh</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-distribution">3.2.1. Degree distribution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-binning">3.2.2. Linear binning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-powerlaw-package">4.1. The Powerlaw package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ca-astroph">4.2. Analysis of ca-AstroPh</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-distribution">4.2.1. Degree distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-binning">4.2.2. Linear binning</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">3.3. Parameter estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-distributions-and-fit">3.4. Visualize distributions and fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-candidate-distributions">3.5. Comparing Candidate Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">4.3. Parameter estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-distributions-and-fit">4.4. Visualize distributions and fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-candidate-distributions">4.5. Comparing Candidate Distributions</a></li>
 </ul>
             </nav>
         </div>
@@ -481,10 +475,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-fit-a-power-law-distribution">
-<h1><span class="section-number">3. </span>How to fit a power law distribution<a class="headerlink" href="#how-to-fit-a-power-law-distribution" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>How to fit a power law distribution<a class="headerlink" href="#how-to-fit-a-power-law-distribution" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
@@ -514,7 +508,7 @@ document.write(`
 </div>
 </div>
 <section id="the-powerlaw-package">
-<h2><span class="section-number">3.1. </span>The Powerlaw package<a class="headerlink" href="#the-powerlaw-package" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>The Powerlaw package<a class="headerlink" href="#the-powerlaw-package" title="Permalink to this heading">#</a></h2>
 <p>We use the Python toolbox <a class="reference external" href="https://github.com/jeffalstott/powerlaw">powerlaw</a> that implements a method proposed by Aaron Clauset and collaborators in <a class="reference external" href="https://arxiv.org/abs/0706.1062">this paper</a>.
 The paper explains why fitting a power law distribution using a linear regression of logarthim is not correct.
 A more sound approach is based on a Maximum Likelihood Estimator.</p>
@@ -535,7 +529,7 @@ Several examples and a detailed description of the library has been published in
 </div>
 </section>
 <section id="analysis-of-ca-astroph">
-<h2><span class="section-number">3.2. </span>Analysis of ca-AstroPh<a class="headerlink" href="#analysis-of-ca-astroph" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Analysis of ca-AstroPh<a class="headerlink" href="#analysis-of-ca-astroph" title="Permalink to this heading">#</a></h2>
 <p>We analyze the network file ‘ca-AstroPh’ from the SNAP repository.
 This is a co-authorhip network, thus, it is undirected.</p>
 <div class="cell docutils container">
@@ -574,7 +568,7 @@ This is a co-authorhip network, thus, it is undirected.</p>
 </div>
 </div>
 <section id="degree-distribution">
-<h3><span class="section-number">3.2.1. </span>Degree distribution<a class="headerlink" href="#degree-distribution" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.1. </span>Degree distribution<a class="headerlink" href="#degree-distribution" title="Permalink to this heading">#</a></h3>
 <p>Let’s plot the degree distribution of the network.</p>
 <p>It’s important to keep in mind the difference between <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">probablity mass function</a>.</p>
 <div class="cell docutils container">
@@ -738,7 +732,7 @@ This is a co-authorhip network, thus, it is undirected.</p>
 </div>
 </section>
 <section id="linear-binning">
-<h3><span class="section-number">3.2.2. </span>Linear binning<a class="headerlink" href="#linear-binning" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.2.2. </span>Linear binning<a class="headerlink" href="#linear-binning" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
@@ -766,7 +760,7 @@ This is a co-authorhip network, thus, it is undirected.</p>
 </section>
 </section>
 <section id="parameter-estimation">
-<h2><span class="section-number">3.3. </span>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this heading">#</a></h2>
 <p>The library powerlaw allows to estimate the exponent <span class="math notranslate nohighlight">\(\alpha\)</span> and the minimum value for the scaling <span class="math notranslate nohighlight">\(x_{min}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1939,7 +1933,7 @@ This is a co-authorhip network, thus, it is undirected.</p>
 </div>
 </section>
 <section id="visualize-distributions-and-fit">
-<h2><span class="section-number">3.4. </span>Visualize distributions and fit<a class="headerlink" href="#visualize-distributions-and-fit" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Visualize distributions and fit<a class="headerlink" href="#visualize-distributions-and-fit" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
@@ -1993,7 +1987,7 @@ This is a co-authorhip network, thus, it is undirected.</p>
 </div>
 </section>
 <section id="comparing-candidate-distributions">
-<h2><span class="section-number">3.5. </span>Comparing Candidate Distributions<a class="headerlink" href="#comparing-candidate-distributions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5. </span>Comparing Candidate Distributions<a class="headerlink" href="#comparing-candidate-distributions" title="Permalink to this heading">#</a></h2>
 <p>We can compare the goodness of fit of several distributions. Distributions other than a power-law can provide a better fit to the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2245,7 +2239,7 @@ This is a co-authorhip network, thus, it is undirected.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction to NetworkX</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Introduction to NetworkX</p>
       </div>
     </a>
     <a class="right-next"
@@ -2253,7 +2247,7 @@ This is a co-authorhip network, thus, it is undirected.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Basics of network analysis</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Basics of network analysis</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2266,22 +2260,21 @@ This is a co-authorhip network, thus, it is undirected.</p>
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-powerlaw-package">3.1. The Powerlaw package</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ca-astroph">3.2. Analysis of ca-AstroPh</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-distribution">3.2.1. Degree distribution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-binning">3.2.2. Linear binning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-powerlaw-package">4.1. The Powerlaw package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-ca-astroph">4.2. Analysis of ca-AstroPh</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-distribution">4.2.1. Degree distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-binning">4.2.2. Linear binning</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">3.3. Parameter estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-distributions-and-fit">3.4. Visualize distributions and fit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-candidate-distributions">3.5. Comparing Candidate Distributions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-estimation">4.3. Parameter estimation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-distributions-and-fit">4.4. Visualize distributions and fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-candidate-distributions">4.5. Comparing Candidate Distributions</a></li>
 </ul>
   </nav></div>
 
@@ -2330,8 +2323,8 @@ By M. Lucas, L. Dall'Amico
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
