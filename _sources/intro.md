@@ -11,3 +11,6 @@
 
 ```{tableofcontents}
 ```
+
+[pdf di prova](./slides/prova.pdf)
+<!-- (./slides/03_What complexity science is, and why.pdf) -->
