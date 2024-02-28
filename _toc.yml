@@ -14,42 +14,42 @@ parts:
   - file: 1-intro/nb01_Python_Jupyter_notebook
   - file: 1-intro/nb02_data_import_and_networks
 
-- caption: Network analysis
-  chapters:
-   - file: 2-networkx/nb03_NetworkX_visualization
-   - file: 2-networkx/nb04_powerlaw_fitting
-   - file: 2-networkx/nb05_network_analysis
-   - file: 2-networkx/nb06_random_graphs
-   - file: 2-networkx/nb07_network_assortativity
-   - file: 2-networkx/nb08_network_robustness
+#- caption: Network analysis
+#  chapters:
+#   - file: 2-networkx/nb03_NetworkX_visualization
+#   - file: 2-networkx/nb04_powerlaw_fitting
+#   - file: 2-networkx/nb05_network_analysis
+#    - file: 2-networkx/nb06_random_graphs
+#    - file: 2-networkx/nb07_network_assortativity
+#    - file: 2-networkx/nb08_network_robustness
 
-- caption: Dynamical processes
-  chapters:
-    - file: 3-epidemic-spreading/nb09_random_walks
-    - file: 3-epidemic-spreading/nb10_epidemic_processes
-    - file: 3-epidemic-spreading/nb11_epidemics_on_networks
-    - file: 3-epidemic-spreading/nb12_synchronization
+# - caption: Dynamical processes
+#   chapters:
+#     - file: 3-epidemic-spreading/nb09_random_walks
+#     - file: 3-epidemic-spreading/nb10_epidemic_processes
+#     - file: 3-epidemic-spreading/nb11_epidemics_on_networks
+#     - file: 3-epidemic-spreading/nb12_synchronization
 
-- caption: Social contagion
-  chapters:
-    - file: 4-social-contagion/nb13_axelrod_model
-    - file: 4-social-contagion/nb14_Higher_order_naming_game
-    - file: 4-social-contagion/nb15_Simplagion_on_RSC_model
+# - caption: Social contagion
+#   chapters:
+#     - file: 4-social-contagion/nb13_axelrod_model
+#     - file: 4-social-contagion/nb14_Higher_order_naming_game
+#     - file: 4-social-contagion/nb15_Simplagion_on_RSC_model
 
-- caption: Temporal Networks
-  chapters:
-    - file: 5-temporal-networks/nb14_epidemics_temporal_networks
-    - file: 5-temporal-networks/nb15_temporal_networks_part2
-    - file: 5-temporal-networks/nb16_infer_phases_temporal_networks
+# - caption: Temporal Networks
+#   chapters:
+#     - file: 5-temporal-networks/nb14_epidemics_temporal_networks
+#     - file: 5-temporal-networks/nb15_temporal_networks_part2
+#     - file: 5-temporal-networks/nb16_infer_phases_temporal_networks
 
-- caption: Community detection 
-  chapters:
-    - file: 6-community-detection/nb17_community_detection
-    - file: 6-community-detection/nb18_partition_comparison
+# - caption: Community detection 
+#   chapters:
+#     - file: 6-community-detection/nb17_community_detection
+#     - file: 6-community-detection/nb18_partition_comparison
 
-- caption: Hypergraphs 
-  chapters:
-    - file: 7-hypergraphs/nb19_xgi_quickstart
-    - file: 7-hypergraphs/nb20_case_study_zhang2022
+# - caption: Hypergraphs 
+#   chapters:
+#     - file: 7-hypergraphs/nb19_xgi_quickstart
+#     - file: 7-hypergraphs/nb20_case_study_zhang2022
 
 
