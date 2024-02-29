@@ -12,5 +12,9 @@
 ```{tableofcontents}
 ```
 
-[pdf di prova](./slides/prova.pdf)
+## Slides
+
+- Lesson 1: [Course Intro](./slides/1_Intro_networks.pdf)
+
+<!-- [pdf di prova](./slides/prova.pdf) -->
 <!-- (./slides/03_What complexity science is, and why.pdf) -->
