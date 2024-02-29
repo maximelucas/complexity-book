@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '1-intro/nb01_Python_Jupyter_notebook';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Basic network import and representation" href="nb02_data_import_and_networks.html" />
+    <link rel="next" title="3. Basic network import and representation" href="nb02_data_import_and_networks.html" />
     <link rel="prev" title="Coursebook for “Complessita’ nei Sistemi Sociali”" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -174,7 +174,8 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Python is easy :)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nb02_data_import_and_networks.html">2. Basic network import and representation</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="nb02_data_import_and_networks.html">3. Basic network import and representation</a></li>
 </ul>
 
     </div>
@@ -419,6 +420,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Python is easy :)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install">1.1. Install</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-concepts">1.2. Basic concepts</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">1.2.1. Modules</a></li>
@@ -429,16 +431,22 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown">1.2.4. Markdown</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rich-display-system">1.2.5. Rich Display System</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">1.2.6. LaTeX</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">1.3. Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-and-plotting">1.4. Matplotlib and plotting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">1.4.1. Seaborn</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#title">2. title</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rich-display-system">2.1. Rich Display System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">2.2. LaTeX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">2.3. Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-and-plotting">2.4. Matplotlib and plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">2.4.1. Seaborn</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -863,10 +871,20 @@ FILE
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;numpy.random&#39; from &#39;/Users/maxime/.pyenv/versions/venv_xgi/lib/python3.9/site-packages/numpy/random/__init__.py&#39;&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multinomial</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function RandomState.multinomial&gt;
 </pre></div>
 </div>
 </div>
@@ -884,15 +902,7 @@ FILE
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span> <span class="n">x</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span> <span class="n">x</span>
-                 <span class="o">^</span>
-<span class="ne">SyntaxError</span>: unexpected EOF while parsing
+<span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">-</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -916,7 +926,7 @@ FILE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="g g-Whitespace">    </span><span class="mi">3</span> <span class="o">+*</span> <span class="mi">4</span>
        <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1017,7 +1027,7 @@ FILE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; st&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;my st&#39;
 </pre></div>
 </div>
 </div>
@@ -1089,6 +1099,26 @@ FILE
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. , 5.5, 6. ,
+       6.5, 7. , 7.5, 8. , 8.5, 9. , 9.5])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
@@ -1151,7 +1181,7 @@ FILE
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">39</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">60</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
 
 <span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
@@ -1217,6 +1247,23 @@ FILE
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">66</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="ne">KeyError</span>: 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;parameter1&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1257,6 +1304,16 @@ FILE
 </section>
 <section id="markdown">
 <h3><span class="section-number">1.2.4. </span>Markdown<a class="headerlink" href="#markdown" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="title">
+<h1><span class="section-number">2. </span>title<a class="headerlink" href="#title" title="Permalink to this heading">#</a></h1>
+<p>text</p>
+<ul class="simple">
+<li><p>item 1</p></li>
+<li><p>item 2</p></li>
+</ul>
 <p>Text can be added to Jupyter Notebooks using Markdown cells. Markdown is a popular markup language that is a superset of HTML. Its specification can be found here:
 <a class="reference external" href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p>
 <p>You can make text <em>italic</em> or <strong>bold</strong>.
@@ -1359,9 +1416,8 @@ Namespaces are one honking great idea – let’s do more of those!</p>
 <td>row 2, cell 1</td>
 <td>row 2, cell 2</td>
 </tr>
-</table></section>
-<section id="rich-display-system">
-<h3><span class="section-number">1.2.5. </span>Rich Display System<a class="headerlink" href="#rich-display-system" title="Permalink to this heading">#</a></h3>
+</table><section id="rich-display-system">
+<h2><span class="section-number">2.1. </span>Rich Display System<a class="headerlink" href="#rich-display-system" title="Permalink to this heading">#</a></h2>
 <p>To work with images (JPEG, PNG) use the Image class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1419,8 +1475,9 @@ Namespaces are one honking great idea – let’s do more of those!</p>
 </div>
 </section>
 <section id="latex">
-<h3><span class="section-number">1.2.6. </span>LaTeX<a class="headerlink" href="#latex" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">2.2. </span>LaTeX<a class="headerlink" href="#latex" title="Permalink to this heading">#</a></h2>
 <p>IPython Notebook supports the display of mathematical expressions typeset in LaTeX</p>
+<p><span class="math notranslate nohighlight">\( x = \int_0^N x^2\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Math</span>
@@ -1460,9 +1517,8 @@ Namespaces are one honking great idea – let’s do more of those!</p>
 </div>
 </div>
 </section>
-</section>
 <section id="pandas">
-<h2><span class="section-number">1.3. </span>Pandas<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Pandas<a class="headerlink" href="#pandas" title="Permalink to this heading">#</a></h2>
 <p><em>pandas</em> is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language.</p>
 <p><a class="reference external" href="https://pandas.pydata.org/">https://pandas.pydata.org/</a></p>
 <div class="cell docutils container">
@@ -1730,7 +1786,7 @@ Namespaces are one honking great idea – let’s do more of those!</p>
 </div>
 </section>
 <section id="matplotlib-and-plotting">
-<h2><span class="section-number">1.4. </span>Matplotlib and plotting<a class="headerlink" href="#matplotlib-and-plotting" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.4. </span>Matplotlib and plotting<a class="headerlink" href="#matplotlib-and-plotting" title="Permalink to this heading">#</a></h2>
 <p>Matplotlib is an excellent 2D and 3D graphics library for generating scientific figures. Some of the many advantages of this library include:</p>
 <ul class="simple">
 <li><p>Easy to get started</p></li>
@@ -1752,7 +1808,7 @@ Namespaces are one honking great idea – let’s do more of those!</p>
 Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/maxime/.pyenv/versions/venv_xgi/lib/python3.9/site-packages/IPython/core/magics/pylab.py:162: UserWarning: pylab import has clobbered these variables: [&#39;cos&#39;, &#39;step&#39;, &#39;pi&#39;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/maxime/.pyenv/versions/venv_xgi/lib/python3.9/site-packages/IPython/core/magics/pylab.py:162: UserWarning: pylab import has clobbered these variables: [&#39;step&#39;, &#39;cos&#39;, &#39;pi&#39;]
 `%matplotlib` prevents importing * from pylab and numpy
   warn(&quot;pylab import has clobbered these variables: %s&quot;  % clobbered +
 </pre></div>
@@ -1761,7 +1817,7 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">Diff</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Diff&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1769,7 +1825,7 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/2c7d990f18efbdb9145c311ceb885b42422bda775a7dcdb06489e5f43c7b41ed.png" src="../_images/2c7d990f18efbdb9145c311ceb885b42422bda775a7dcdb06489e5f43c7b41ed.png" />
+<img alt="../_images/09bf1441eeb886b8c6c4699f2ab592a816cc7e4ed590f11a771a8689451e6e6c.png" src="../_images/09bf1441eeb886b8c6c4699f2ab592a816cc7e4ed590f11a771a8689451e6e6c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1795,8 +1851,29 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;riga&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$x^2$&quot;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3619e79aed67385c66061a180b3d0e3aafb88606070ad5dc54cb75f5795a7af7.png" src="../_images/3619e79aed67385c66061a180b3d0e3aafb88606070ad5dc54cb75f5795a7af7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$y = x^2$&quot;</span><span class="p">)</span>
@@ -1806,12 +1883,12 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a4e9afcdfd7fe5a063204d3dc286e43263e24ecd7d4d60b460f17a80a2437e67.png" src="../_images/a4e9afcdfd7fe5a063204d3dc286e43263e24ecd7d4d60b460f17a80a2437e67.png" />
+<img alt="../_images/e24d8cd3a9ccf5d0ac508544436d486a5f40a4b1767838bf15102f44637f2109.png" src="../_images/e24d8cd3a9ccf5d0ac508544436d486a5f40a4b1767838bf15102f44637f2109.png" />
 </div>
 </div>
 <p>Great documentation and basic tutorial available from the lectures of <a class="reference external" href="http://nbviewer.jupyter.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-4-Matplotlib.ipynb">Robert Johansson</a></p>
 <section id="seaborn">
-<h3><span class="section-number">1.4.1. </span>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.4.1. </span>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this heading">#</a></h3>
 <p>Seaborn is a Python visualization library based on matplotlib. It provides a high-level interface for drawing attractive statistical graphics.</p>
 <p><a class="reference external" href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></p>
 <div class="cell docutils container">
@@ -1831,7 +1908,7 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/856fb0ba67010f5511249a31bb871eed9b3aeb8c8fae3479b1130534b7d02645.png" src="../_images/856fb0ba67010f5511249a31bb871eed9b3aeb8c8fae3479b1130534b7d02645.png" />
+<img alt="../_images/62740579cfa58108143cbcfd097088de7d0fcf799617067845c8b10de28e3bc1.png" src="../_images/62740579cfa58108143cbcfd097088de7d0fcf799617067845c8b10de28e3bc1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1844,34 +1921,12 @@ Populating the interactive namespace from numpy and matplotlib
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;High&#39;, ylabel=&#39;Density&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/f669c632315ab5b485b56490b6b49143708e070a6ffe23ec0dc5b9509f880459.png" src="../_images/f669c632315ab5b485b56490b6b49143708e070a6ffe23ec0dc5b9509f880459.png" />
+<img alt="../_images/ab6e3249695e6523675b8b7e8bec447f0b5ae3597e80c90f1a2e3a072ee2d63f.png" src="../_images/ab6e3249695e6523675b8b7e8bec447f0b5ae3597e80c90f1a2e3a072ee2d63f.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">High</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/wm/5gv37br900l73y63tjf8sr1r0000gn/T/ipykernel_13285/1765152266.py:1: UserWarning: 
-
-The `bw` parameter is deprecated in favor of `bw_method` and `bw_adjust`.
-Setting `bw_method=10`, but please see the docs for the new parameters
-and update your code. This will become an error in seaborn v0.13.0.
-
-  sns.kdeplot(df.High, bw=10)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;High&#39;, ylabel=&#39;Density&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/8ec7dc139af8a598118aab67d5807dd289812da6068afd050189ffd019dd4366.png" src="../_images/8ec7dc139af8a598118aab67d5807dd289812da6068afd050189ffd019dd4366.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">loop</span> 
 </pre></div>
 </div>
 </div>
@@ -1924,7 +1979,7 @@ and update your code. This will become an error in seaborn v0.13.0.
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Basic network import and representation</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Basic network import and representation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1943,6 +1998,7 @@ and update your code. This will become an error in seaborn v0.13.0.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Python is easy :)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install">1.1. Install</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-concepts">1.2. Basic concepts</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules">1.2.1. Modules</a></li>
@@ -1953,16 +2009,22 @@ and update your code. This will become an error in seaborn v0.13.0.
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown">1.2.4. Markdown</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rich-display-system">1.2.5. Rich Display System</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">1.2.6. LaTeX</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">1.3. Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-and-plotting">1.4. Matplotlib and plotting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">1.4.1. Seaborn</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#title">2. title</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rich-display-system">2.1. Rich Display System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latex">2.2. LaTeX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">2.3. Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-and-plotting">2.4. Matplotlib and plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">2.4.1. Seaborn</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
