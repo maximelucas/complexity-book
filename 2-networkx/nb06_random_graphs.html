@@ -454,8 +454,38 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6529223135709693
+</pre></div>
+</div>
+</div>
+</div>
 <section id="write-a-random-graph-generator">
 <h2><span class="section-number">6.1. </span>Write a random graph generator<a class="headerlink" href="#write-a-random-graph-generator" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_graph</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_nodes</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">[:</span><span class="n">i</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span> <span class="o">&lt;=</span> <span class="n">p</span><span class="p">:</span>
+                <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+                
+    <span class="k">return</span> <span class="n">G</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">random_graph</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
@@ -481,9 +511,19 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">random_graph</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">random_graph</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graph with 10 nodes and 3 edges
+</pre></div>
+</div>
+<img alt="../_images/760c57f43d5a5fd690a4b5d59154ec40943993274a20b84516ccf77bbff73ef6.png" src="../_images/760c57f43d5a5fd690a4b5d59154ec40943993274a20b84516ccf77bbff73ef6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -491,6 +531,18 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="o">/</span> <span class="n">N</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">random_graph</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.605170185988092
 </pre></div>
 </div>
 </div>
@@ -513,7 +565,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ae1029e9c6f8d046575e251add4a30958bf2ad21896a170b6028b270567bb9c0.png" src="../_images/ae1029e9c6f8d046575e251add4a30958bf2ad21896a170b6028b270567bb9c0.png" />
+<img alt="../_images/4bfa83e500337be91072abef61d9c263327c72d4fffc1bafe516f0fda5b4e183.png" src="../_images/4bfa83e500337be91072abef61d9c263327c72d4fffc1bafe516f0fda5b4e183.png" />
 </div>
 </div>
 </section>
@@ -522,7 +574,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">p</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">N</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">/</span> <span class="n">N</span>
 
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">erdos_renyi_graph</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -561,7 +613,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1903b88e17b8851f53fb8edcaa39b6bc7717eb32a7e30355fd12edd58205ff1e.png" src="../_images/1903b88e17b8851f53fb8edcaa39b6bc7717eb32a7e30355fd12edd58205ff1e.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/wm/5gv37br900l73y63tjf8sr1r0000gn/T/ipykernel_7931/3661388696.py:21: DeprecationWarning: `alltrue` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `all` instead.
+  nx.draw_networkx_edges(
+</pre></div>
+</div>
+<img alt="../_images/73c2ba8274e6875f6e16e751b2a1b259c3e5cf04b7b6b1c338977278f1da2a3a.png" src="../_images/73c2ba8274e6875f6e16e751b2a1b259c3e5cf04b7b6b1c338977278f1da2a3a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -582,13 +638,13 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected: False
-# connected components: 26
+# connected components: 11
 
-Size of largest connected component: 974
-Prop. of nodes in it: 0.97
+Size of largest connected component: 989
+Prop. of nodes in it: 0.99
 
-Average degree: 3.978
-Clustering coefficient: 0.0027341269841269842
+Average degree: 5.0
+Clustering coefficient: 0.005966788766788765
 </pre></div>
 </div>
 </div>
@@ -605,20 +661,29 @@ Clustering coefficient: 0.0027341269841269842
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$P(k)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="c1">#plt.yscale(&quot;log&quot;)</span>
+<span class="c1">#plt.xscale(&quot;log&quot;)</span>
 
 <span class="n">sb</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/829b39945ea0a81e4e53279cf3cd6da94ba8e06815869be85055e79801a67130.png" src="../_images/829b39945ea0a81e4e53279cf3cd6da94ba8e06815869be85055e79801a67130.png" />
+<img alt="../_images/4da10ed9f2228c1c0fb13312718c5aad99b8ce5091a79da75792a8a2a17898f7.png" src="../_images/4da10ed9f2228c1c0fb13312718c5aad99b8ce5091a79da75792a8a2a17898f7.png" />
 </div>
 </div>
 </section>
 <section id="vary-the-degree-k">
 <h2><span class="section-number">6.3. </span>Vary the degree k<a class="headerlink" href="#vary-the-degree-k" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">ks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -660,7 +725,7 @@ Clustering coefficient: 0.0027341269841269842
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/afc1f5bc3a2648d6987b2a97d99abfdf55ec1b61d862b4f755c4473e9c0c2354.png" src="../_images/afc1f5bc3a2648d6987b2a97d99abfdf55ec1b61d862b4f755c4473e9c0c2354.png" />
+<img alt="../_images/d1433996051044fc264e0114855975eab50953af029a6322e16f7877fa813459.png" src="../_images/d1433996051044fc264e0114855975eab50953af029a6322e16f7877fa813459.png" />
 </div>
 </div>
 </section>
@@ -671,8 +736,25 @@ Clustering coefficient: 0.0027341269841269842
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">/</span> <span class="n">N</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">random_graph</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-
-<span class="n">degree_sequence</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degree_sequence</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degree_sequence</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7, 4, 4, 7, 1, 4, 5, 2, 6, 5, 9, 7, 9, 3, 5, 5, 6, 5, 5, 3]
 </pre></div>
 </div>
 </div>
@@ -695,15 +777,44 @@ Clustering coefficient: 0.0027341269841269842
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/92c40d281d5814f14a2d955b4a6fa534cd96dc2df10b882c08b9aedcbe1b1cf2.png" src="../_images/92c40d281d5814f14a2d955b4a6fa534cd96dc2df10b882c08b9aedcbe1b1cf2.png" />
+<img alt="../_images/499a2c97eaec65995aa5bbb71936b0dd9189eecfadd5cc032427ee33bec811a5.png" src="../_images/499a2c97eaec65995aa5bbb71936b0dd9189eecfadd5cc032427ee33bec811a5.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_conf</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">configuration_model</span><span class="p">(</span><span class="n">degree_sequence</span><span class="p">)</span>
-<span class="n">G_conf</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">G_conf</span><span class="p">)</span>
-
-<span class="n">degree_sequence_conf</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">G_conf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MultiGraph with 20 nodes and 51 edges
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_conf</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">G_conf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">G_conf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graph with 20 nodes and 48 edges
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degree_sequence_conf</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">G_conf</span><span class="o">.</span><span class="n">degree</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -715,7 +826,7 @@ Clustering coefficient: 0.0027341269841269842
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graph with 20 nodes and 54 edges
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graph with 20 nodes and 51 edges
 </pre></div>
 </div>
 </div>
@@ -745,6 +856,8 @@ Clustering coefficient: 0.0027341269841269842
 <span class="c1"># plt.yscale(&quot;log&quot;)</span>
 <span class="c1"># plt.xscale(&quot;log&quot;)</span>
 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="p">)))</span>
+
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
 <span class="n">sb</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
@@ -752,13 +865,19 @@ Clustering coefficient: 0.0027341269841269842
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/96a9e6e0e163d25ba7b584fcbe8df83c181088746ecb4b1cd90bfe56bb48cba2.png" src="../_images/96a9e6e0e163d25ba7b584fcbe8df83c181088746ecb4b1cd90bfe56bb48cba2.png" />
+<img alt="../_images/456be17cf9fa9581a4f3bc29a1cf10048294c0cd473cc81405d24ca7c5932c72.png" src="../_images/456be17cf9fa9581a4f3bc29a1cf10048294c0cd473cc81405d24ca7c5932c72.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">G_conf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graph with 20 nodes and 51 edges
+Graph with 20 nodes and 48 edges
 </pre></div>
 </div>
 </div>
@@ -778,55 +897,95 @@ Clustering coefficient: 0.0027341269841269842
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/24874e432282ed602e18291bcac9f08a1de5e4430c8c69358dace68c786ed7f1.png" src="../_images/24874e432282ed602e18291bcac9f08a1de5e4430c8c69358dace68c786ed7f1.png" />
+<img alt="../_images/5848b1985bf068f17742c3555b99645136cce42c6e22d79a1224f9c8e475daab.png" src="../_images/5848b1985bf068f17742c3555b99645136cce42c6e22d79a1224f9c8e475daab.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G_conf</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G_conf</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/af66f104164c950b7557cd7695f965e70d93daa5765ad286f4bd88235ce9e262.png" src="../_images/af66f104164c950b7557cd7695f965e70d93daa5765ad286f4bd88235ce9e262.png" />
+<img alt="../_images/eda23b51393057d5c00a633e73e73e4d7078b23613dfde26f67f124e5378a9ea.png" src="../_images/eda23b51393057d5c00a633e73e73e4d7078b23613dfde26f67f124e5378a9ea.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># G_conf = G_conf.remove_edges_from(nx.selfloop_edges(G_conf))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">selfloop_edges</span><span class="p">(</span><span class="n">G_conf</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: array([0.20047498, 0.68928561]),
- 1: array([ 0.14611836, -0.24670642]),
- 2: array([ 0.03608725, -0.11064285]),
- 3: array([ 0.42465229, -0.06698404]),
- 4: array([-0.0246194 ,  0.37842248]),
- 5: array([-1.        ,  0.00844082]),
- 6: array([-0.062711  ,  0.52549913]),
- 7: array([-0.72370023, -0.29077969]),
- 8: array([ 0.82964333, -0.50513973]),
- 9: array([-0.44433816, -0.54556328]),
- 10: array([0.23582442, 0.46413804]),
- 11: array([-0.39611898, -0.28933171]),
- 12: array([ 0.51116579, -0.47879731]),
- 13: array([-0.57260717,  0.09656657]),
- 14: array([-0.15973125,  0.13676757]),
- 15: array([0.50249717, 0.55024869]),
- 16: array([0.49328175, 0.07412928]),
- 17: array([-0.16110627, -0.64629093]),
- 18: array([-0.16588655, -0.004293  ]),
- 19: array([0.33107366, 0.26103078])}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(8, 8), (15, 15)]
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">G_conf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graph with 20 nodes and 48 edges
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edges_to_remove</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">selfloop_edges</span><span class="p">(</span><span class="n">G_conf</span><span class="p">))</span>
+<span class="n">edges_to_remove</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(8, 8), (15, 15)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G_conf</span><span class="o">.</span><span class="n">remove_edges_from</span><span class="p">(</span><span class="n">edges_to_remove</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">G_conf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graph with 20 nodes and 46 edges
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edges_to_remove</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(12, 12)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">G_conf</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6c41dca4164923b17b2d03f580213c92a41067d11109e6cf0d9b88f6ed04f595.png" src="../_images/6c41dca4164923b17b2d03f580213c92a41067d11109e6cf0d9b88f6ed04f595.png" />
 </div>
 </div>
 </section>
@@ -841,16 +1000,16 @@ Clustering coefficient: 0.0027341269841269842
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "stenv"
+            mode: "venv_xgi"
         },
         kernelOptions: {
-            name: "stenv",
+            name: "venv_xgi",
             path: "./2-networkx"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'stenv'</script>
+    <script>kernelName = 'venv_xgi'</script>
 
                 </article>
               
