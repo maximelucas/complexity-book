@@ -17,7 +17,10 @@
 - Lesson 1: [Course Intro](./slides/1_Intro_networks.pdf)
 - Lesson 2: [Intro to networks](./slides/2_Networks_part1.pdf)
 - Lesson 3: [Random models](./slides/3_Networks_part2_random_models.pdf)
-- Lesson 4: [Growing models](./slides/4_Networks_part3_growing_models.pdf)
+- Lesson 4: [Growing models and assortativity](./slides/4_Networks_part3_growing_models.pdf)
+- Lesson 5: [Percolation](./slides/5_Networks_part4_percolation_and_random_walks.pdf)
+
+
 
 <!-- [pdf di prova](./slides/prova.pdf) -->
 <!-- (./slides/03_What complexity science is, and why.pdf) -->
