@@ -186,6 +186,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamical processes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb09_random_walks.html">9. Random walks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3-epidemic-spreading/nb12_synchronization.html">10. Synchronization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypergraphs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb19_xgi_quickstart.html">11. Getting started with XGI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb20_case_study_zhang2022.html">12. Case study: sync</a></li>
 </ul>
 
     </div>
@@ -461,29 +467,54 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>%pylab is deprecated, use %matplotlib inline and import the required libraries.
-Populating the interactive namespace from numpy and matplotlib
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/maxime/.pyenv/versions/venv_xgi/lib/python3.9/site-packages/IPython/core/magics/pylab.py:162: UserWarning: pylab import has clobbered these variables: [&#39;zipf&#39;]
-`%matplotlib` prevents importing * from pylab and numpy
-  warn(&quot;pylab import has clobbered these variables: %s&quot;  % clobbered +
-</pre></div>
-</div>
-</div>
-</div>
 <hr class="docutils" />
 <section id="simulating-random-and-targeted-attacks-to-a-network">
 <h2><span class="section-number">8.1. </span>Simulating random and targeted attacks to a network<a class="headerlink" href="#simulating-random-and-targeted-attacks-to-a-network" title="Permalink to this heading">#</a></h2>
 <p>Resilience is the ability to provide and maintain an acceptable level of service in the face of faults and challenges to normal operation. Threats and challenges for services can range from simple misconfiguration over large scale natural disasters to targeted attacks.</p>
 <p>We define a function that performs a random or targeted attack to a network according to a given strategy (random, degree based, betweenness based, etc. )</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NodeView((1, 2, 3, 4, 5, 6))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">shuffle</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">shuffle</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="n">ranked_nodes</span> <span class="o">=</span> <span class="n">lista</span>
+<span class="n">ranked_nodes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4, 5, 6, 1]
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">net_attack</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">ranked_nodes</span><span class="p">):</span>
@@ -512,6 +543,25 @@ Populating the interactive namespace from numpy and matplotlib
         <span class="n">fraction_removed</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">nnodes</span><span class="p">,</span> <span class="n">gcc_size</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">fraction_removed</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
 </div>
@@ -549,9 +599,466 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graph with 405 nodes and 8251 edges
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shuffle</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resilience_random</span> <span class="o">=</span> <span class="n">net_attack</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">airport_nodes</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resilience_random</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.0, 0.9950617283950617),
+ (0.0024691358024691358, 0.9925925925925926),
+ (0.0049382716049382715, 0.9901234567901235),
+ (0.007407407407407408, 0.9876543209876543),
+ (0.009876543209876543, 0.9876543209876543),
+ (0.012345679012345678, 0.9876543209876543),
+ (0.014814814814814815, 0.9851851851851852),
+ (0.01728395061728395, 0.9827160493827161),
+ (0.019753086419753086, 0.980246913580247),
+ (0.022222222222222223, 0.9777777777777777),
+ (0.024691358024691357, 0.9753086419753086),
+ (0.027160493827160494, 0.9728395061728395),
+ (0.02962962962962963, 0.9703703703703703),
+ (0.03209876543209877, 0.9679012345679012),
+ (0.0345679012345679, 0.9654320987654321),
+ (0.037037037037037035, 0.9629629629629629),
+ (0.03950617283950617, 0.9604938271604938),
+ (0.04197530864197531, 0.9580246913580247),
+ (0.044444444444444446, 0.9555555555555556),
+ (0.04691358024691358, 0.9530864197530864),
+ (0.04938271604938271, 0.9506172839506173),
+ (0.05185185185185185, 0.9481481481481482),
+ (0.05432098765432099, 0.945679012345679),
+ (0.056790123456790124, 0.9432098765432099),
+ (0.05925925925925926, 0.9407407407407408),
+ (0.06172839506172839, 0.9382716049382716),
+ (0.06419753086419754, 0.9358024691358025),
+ (0.06666666666666667, 0.9333333333333333),
+ (0.0691358024691358, 0.9308641975308642),
+ (0.07160493827160494, 0.928395061728395),
+ (0.07407407407407407, 0.9259259259259259),
+ (0.07654320987654321, 0.9234567901234568),
+ (0.07901234567901234, 0.9209876543209876),
+ (0.08148148148148149, 0.9185185185185185),
+ (0.08395061728395062, 0.9160493827160494),
+ (0.08641975308641975, 0.9135802469135802),
+ (0.08888888888888889, 0.9111111111111111),
+ (0.09135802469135802, 0.908641975308642),
+ (0.09382716049382717, 0.9061728395061729),
+ (0.0962962962962963, 0.9037037037037037),
+ (0.09876543209876543, 0.9012345679012346),
+ (0.10123456790123457, 0.8987654320987655),
+ (0.1037037037037037, 0.8962962962962963),
+ (0.10617283950617284, 0.8938271604938272),
+ (0.10864197530864197, 0.891358024691358),
+ (0.1111111111111111, 0.8888888888888888),
+ (0.11358024691358025, 0.8864197530864197),
+ (0.11604938271604938, 0.8839506172839506),
+ (0.11851851851851852, 0.8814814814814815),
+ (0.12098765432098765, 0.8790123456790123),
+ (0.12345679012345678, 0.8765432098765432),
+ (0.1259259259259259, 0.8740740740740741),
+ (0.12839506172839507, 0.8716049382716049),
+ (0.1308641975308642, 0.8691358024691358),
+ (0.13333333333333333, 0.8666666666666667),
+ (0.13580246913580246, 0.8641975308641975),
+ (0.1382716049382716, 0.8617283950617284),
+ (0.14074074074074075, 0.8592592592592593),
+ (0.14320987654320988, 0.8567901234567902),
+ (0.145679012345679, 0.854320987654321),
+ (0.14814814814814814, 0.8518518518518519),
+ (0.1506172839506173, 0.8493827160493828),
+ (0.15308641975308643, 0.8469135802469135),
+ (0.15555555555555556, 0.8444444444444444),
+ (0.1580246913580247, 0.8419753086419753),
+ (0.16049382716049382, 0.8395061728395061),
+ (0.16296296296296298, 0.837037037037037),
+ (0.1654320987654321, 0.8345679012345679),
+ (0.16790123456790124, 0.8320987654320988),
+ (0.17037037037037037, 0.8296296296296296),
+ (0.1728395061728395, 0.8271604938271605),
+ (0.17530864197530865, 0.8246913580246914),
+ (0.17777777777777778, 0.8222222222222222),
+ (0.18024691358024691, 0.8197530864197531),
+ (0.18271604938271604, 0.817283950617284),
+ (0.18518518518518517, 0.8148148148148148),
+ (0.18765432098765433, 0.8123456790123457),
+ (0.19012345679012346, 0.8098765432098766),
+ (0.1925925925925926, 0.8074074074074075),
+ (0.19506172839506172, 0.8049382716049382),
+ (0.19753086419753085, 0.8024691358024691),
+ (0.2, 0.8),
+ (0.20246913580246914, 0.7975308641975308),
+ (0.20493827160493827, 0.7950617283950617),
+ (0.2074074074074074, 0.7925925925925926),
+ (0.20987654320987653, 0.7901234567901234),
+ (0.2123456790123457, 0.7876543209876543),
+ (0.21481481481481482, 0.7851851851851852),
+ (0.21728395061728395, 0.782716049382716),
+ (0.21975308641975308, 0.7802469135802469),
+ (0.2222222222222222, 0.7777777777777778),
+ (0.22469135802469137, 0.7753086419753087),
+ (0.2271604938271605, 0.7728395061728395),
+ (0.22962962962962963, 0.7703703703703704),
+ (0.23209876543209876, 0.7679012345679013),
+ (0.2345679012345679, 0.7654320987654321),
+ (0.23703703703703705, 0.762962962962963),
+ (0.23950617283950618, 0.7604938271604939),
+ (0.2419753086419753, 0.7580246913580246),
+ (0.24444444444444444, 0.7555555555555555),
+ (0.24691358024691357, 0.7530864197530864),
+ (0.24938271604938272, 0.7506172839506173),
+ (0.2518518518518518, 0.7481481481481481),
+ (0.254320987654321, 0.745679012345679),
+ (0.25679012345679014, 0.7432098765432099),
+ (0.25925925925925924, 0.7407407407407407),
+ (0.2617283950617284, 0.7382716049382716),
+ (0.2641975308641975, 0.7358024691358025),
+ (0.26666666666666666, 0.7333333333333333),
+ (0.2691358024691358, 0.7308641975308642),
+ (0.2716049382716049, 0.7283950617283951),
+ (0.2740740740740741, 0.725925925925926),
+ (0.2765432098765432, 0.7234567901234568),
+ (0.27901234567901234, 0.7209876543209877),
+ (0.2814814814814815, 0.7185185185185186),
+ (0.2839506172839506, 0.7160493827160493),
+ (0.28641975308641976, 0.7135802469135802),
+ (0.28888888888888886, 0.7111111111111111),
+ (0.291358024691358, 0.7086419753086419),
+ (0.2938271604938272, 0.7061728395061728),
+ (0.2962962962962963, 0.7037037037037037),
+ (0.29876543209876544, 0.7012345679012346),
+ (0.3012345679012346, 0.6987654320987654),
+ (0.3037037037037037, 0.6962962962962963),
+ (0.30617283950617286, 0.6938271604938272),
+ (0.30864197530864196, 0.691358024691358),
+ (0.3111111111111111, 0.6888888888888889),
+ (0.3135802469135803, 0.6864197530864198),
+ (0.3160493827160494, 0.6839506172839506),
+ (0.31851851851851853, 0.6814814814814815),
+ (0.32098765432098764, 0.6790123456790124),
+ (0.3234567901234568, 0.6765432098765433),
+ (0.32592592592592595, 0.674074074074074),
+ (0.32839506172839505, 0.671604938271605),
+ (0.3308641975308642, 0.6691358024691358),
+ (0.3333333333333333, 0.6666666666666666),
+ (0.3358024691358025, 0.6641975308641975),
+ (0.33827160493827163, 0.6617283950617284),
+ (0.34074074074074073, 0.6592592592592592),
+ (0.3432098765432099, 0.6567901234567901),
+ (0.345679012345679, 0.654320987654321),
+ (0.34814814814814815, 0.6518518518518519),
+ (0.3506172839506173, 0.6493827160493827),
+ (0.3530864197530864, 0.6469135802469136),
+ (0.35555555555555557, 0.6444444444444445),
+ (0.35802469135802467, 0.6419753086419753),
+ (0.36049382716049383, 0.6395061728395062),
+ (0.362962962962963, 0.6370370370370371),
+ (0.3654320987654321, 0.6345679012345679),
+ (0.36790123456790125, 0.6320987654320988),
+ (0.37037037037037035, 0.6296296296296297),
+ (0.3728395061728395, 0.6271604938271605),
+ (0.37530864197530867, 0.6246913580246913),
+ (0.37777777777777777, 0.6222222222222222),
+ (0.3802469135802469, 0.6197530864197531),
+ (0.38271604938271603, 0.6172839506172839),
+ (0.3851851851851852, 0.6148148148148148),
+ (0.38765432098765434, 0.6123456790123457),
+ (0.39012345679012345, 0.6098765432098765),
+ (0.3925925925925926, 0.6074074074074074),
+ (0.3950617283950617, 0.6049382716049383),
+ (0.39753086419753086, 0.6024691358024692),
+ (0.4, 0.6),
+ (0.4024691358024691, 0.5975308641975309),
+ (0.4049382716049383, 0.5950617283950618),
+ (0.4074074074074074, 0.5925925925925926),
+ (0.40987654320987654, 0.5901234567901235),
+ (0.4123456790123457, 0.5876543209876544),
+ (0.4148148148148148, 0.5851851851851851),
+ (0.41728395061728396, 0.582716049382716),
+ (0.41975308641975306, 0.5802469135802469),
+ (0.4222222222222222, 0.5777777777777777),
+ (0.4246913580246914, 0.5753086419753086),
+ (0.4271604938271605, 0.5728395061728395),
+ (0.42962962962962964, 0.5703703703703704),
+ (0.43209876543209874, 0.5679012345679012),
+ (0.4345679012345679, 0.5654320987654321),
+ (0.43703703703703706, 0.562962962962963),
+ (0.43950617283950616, 0.5604938271604938),
+ (0.4419753086419753, 0.5580246913580247),
+ (0.4444444444444444, 0.5555555555555556),
+ (0.4469135802469136, 0.5530864197530864),
+ (0.44938271604938274, 0.5506172839506173),
+ (0.45185185185185184, 0.5481481481481482),
+ (0.454320987654321, 0.5456790123456791),
+ (0.4567901234567901, 0.5432098765432098),
+ (0.45925925925925926, 0.5407407407407407),
+ (0.4617283950617284, 0.5382716049382716),
+ (0.4641975308641975, 0.5358024691358024),
+ (0.4666666666666667, 0.5333333333333333),
+ (0.4691358024691358, 0.5308641975308642),
+ (0.47160493827160493, 0.528395061728395),
+ (0.4740740740740741, 0.5259259259259259),
+ (0.4765432098765432, 0.5234567901234568),
+ (0.47901234567901235, 0.5209876543209877),
+ (0.48148148148148145, 0.5185185185185185),
+ (0.4839506172839506, 0.5160493827160494),
+ (0.48641975308641977, 0.5135802469135803),
+ (0.4888888888888889, 0.5111111111111111),
+ (0.49135802469135803, 0.508641975308642),
+ (0.49382716049382713, 0.5061728395061729),
+ (0.4962962962962963, 0.5037037037037037),
+ (0.49876543209876545, 0.5012345679012346),
+ (0.5012345679012346, 0.49876543209876545),
+ (0.5037037037037037, 0.4962962962962963),
+ (0.5061728395061729, 0.49382716049382713),
+ (0.508641975308642, 0.49135802469135803),
+ (0.5111111111111111, 0.4888888888888889),
+ (0.5135802469135803, 0.48641975308641977),
+ (0.5160493827160494, 0.4839506172839506),
+ (0.5185185185185185, 0.48148148148148145),
+ (0.5209876543209877, 0.47901234567901235),
+ (0.5234567901234568, 0.4765432098765432),
+ (0.5259259259259259, 0.4740740740740741),
+ (0.528395061728395, 0.47160493827160493),
+ (0.5308641975308642, 0.4691358024691358),
+ (0.5333333333333333, 0.4666666666666667),
+ (0.5358024691358024, 0.4641975308641975),
+ (0.5382716049382716, 0.4617283950617284),
+ (0.5407407407407407, 0.45925925925925926),
+ (0.5432098765432098, 0.4567901234567901),
+ (0.5456790123456791, 0.454320987654321),
+ (0.5481481481481482, 0.45185185185185184),
+ (0.5506172839506173, 0.44938271604938274),
+ (0.5530864197530864, 0.4469135802469136),
+ (0.5555555555555556, 0.4444444444444444),
+ (0.5580246913580247, 0.4419753086419753),
+ (0.5604938271604938, 0.43950617283950616),
+ (0.562962962962963, 0.43703703703703706),
+ (0.5654320987654321, 0.4345679012345679),
+ (0.5679012345679012, 0.43209876543209874),
+ (0.5703703703703704, 0.42962962962962964),
+ (0.5728395061728395, 0.4271604938271605),
+ (0.5753086419753086, 0.4246913580246914),
+ (0.5777777777777777, 0.4222222222222222),
+ (0.5802469135802469, 0.41975308641975306),
+ (0.582716049382716, 0.41728395061728396),
+ (0.5851851851851851, 0.4148148148148148),
+ (0.5876543209876544, 0.4123456790123457),
+ (0.5901234567901235, 0.40987654320987654),
+ (0.5925925925925926, 0.4074074074074074),
+ (0.5950617283950618, 0.4049382716049383),
+ (0.5975308641975309, 0.4024691358024691),
+ (0.6, 0.4),
+ (0.6024691358024692, 0.39753086419753086),
+ (0.6049382716049383, 0.3950617283950617),
+ (0.6074074074074074, 0.3925925925925926),
+ (0.6098765432098765, 0.39012345679012345),
+ (0.6123456790123457, 0.38765432098765434),
+ (0.6148148148148148, 0.3851851851851852),
+ (0.6172839506172839, 0.38271604938271603),
+ (0.6197530864197531, 0.3802469135802469),
+ (0.6222222222222222, 0.37777777777777777),
+ (0.6246913580246913, 0.37530864197530867),
+ (0.6271604938271605, 0.3728395061728395),
+ (0.6296296296296297, 0.37037037037037035),
+ (0.6320987654320988, 0.36790123456790125),
+ (0.6345679012345679, 0.3654320987654321),
+ (0.6370370370370371, 0.362962962962963),
+ (0.6395061728395062, 0.36049382716049383),
+ (0.6419753086419753, 0.35802469135802467),
+ (0.6444444444444445, 0.35555555555555557),
+ (0.6469135802469136, 0.3530864197530864),
+ (0.6493827160493827, 0.3506172839506173),
+ (0.6518518518518519, 0.34814814814814815),
+ (0.654320987654321, 0.345679012345679),
+ (0.6567901234567901, 0.3432098765432099),
+ (0.6592592592592592, 0.34074074074074073),
+ (0.6617283950617284, 0.33827160493827163),
+ (0.6641975308641975, 0.3358024691358025),
+ (0.6666666666666666, 0.3333333333333333),
+ (0.6691358024691358, 0.3308641975308642),
+ (0.671604938271605, 0.32839506172839505),
+ (0.674074074074074, 0.32592592592592595),
+ (0.6765432098765433, 0.3234567901234568),
+ (0.6790123456790124, 0.32098765432098764),
+ (0.6814814814814815, 0.31851851851851853),
+ (0.6839506172839506, 0.3160493827160494),
+ (0.6864197530864198, 0.3135802469135803),
+ (0.6888888888888889, 0.3111111111111111),
+ (0.691358024691358, 0.30864197530864196),
+ (0.6938271604938272, 0.30617283950617286),
+ (0.6962962962962963, 0.3037037037037037),
+ (0.6987654320987654, 0.3012345679012346),
+ (0.7012345679012346, 0.29876543209876544),
+ (0.7037037037037037, 0.2962962962962963),
+ (0.7061728395061728, 0.2938271604938272),
+ (0.7086419753086419, 0.291358024691358),
+ (0.7111111111111111, 0.28888888888888886),
+ (0.7135802469135802, 0.28641975308641976),
+ (0.7160493827160493, 0.2839506172839506),
+ (0.7185185185185186, 0.2814814814814815),
+ (0.7209876543209877, 0.27901234567901234),
+ (0.7234567901234568, 0.2765432098765432),
+ (0.725925925925926, 0.2740740740740741),
+ (0.7283950617283951, 0.2716049382716049),
+ (0.7308641975308642, 0.2691358024691358),
+ (0.7333333333333333, 0.26666666666666666),
+ (0.7358024691358025, 0.2641975308641975),
+ (0.7382716049382716, 0.2617283950617284),
+ (0.7407407407407407, 0.25925925925925924),
+ (0.7432098765432099, 0.25679012345679014),
+ (0.745679012345679, 0.254320987654321),
+ (0.7481481481481481, 0.2518518518518518),
+ (0.7506172839506173, 0.24938271604938272),
+ (0.7530864197530864, 0.24691358024691357),
+ (0.7555555555555555, 0.24444444444444444),
+ (0.7580246913580246, 0.2419753086419753),
+ (0.7604938271604939, 0.23950617283950618),
+ (0.762962962962963, 0.23703703703703705),
+ (0.7654320987654321, 0.2345679012345679),
+ (0.7679012345679013, 0.23209876543209876),
+ (0.7703703703703704, 0.22962962962962963),
+ (0.7728395061728395, 0.2271604938271605),
+ (0.7753086419753087, 0.22469135802469137),
+ (0.7777777777777778, 0.2222222222222222),
+ (0.7802469135802469, 0.21975308641975308),
+ (0.782716049382716, 0.21728395061728395),
+ (0.7851851851851852, 0.21481481481481482),
+ (0.7876543209876543, 0.2123456790123457),
+ (0.7901234567901234, 0.20987654320987653),
+ (0.7925925925925926, 0.2074074074074074),
+ (0.7950617283950617, 0.20493827160493827),
+ (0.7975308641975308, 0.20246913580246914),
+ (0.8, 0.2),
+ (0.8024691358024691, 0.19753086419753085),
+ (0.8049382716049382, 0.19506172839506172),
+ (0.8074074074074075, 0.1925925925925926),
+ (0.8098765432098766, 0.19012345679012346),
+ (0.8123456790123457, 0.18765432098765433),
+ (0.8148148148148148, 0.18518518518518517),
+ (0.817283950617284, 0.18271604938271604),
+ (0.8197530864197531, 0.18024691358024691),
+ (0.8222222222222222, 0.17777777777777778),
+ (0.8246913580246914, 0.17530864197530865),
+ (0.8271604938271605, 0.1728395061728395),
+ (0.8296296296296296, 0.17037037037037037),
+ (0.8320987654320988, 0.16790123456790124),
+ (0.8345679012345679, 0.1654320987654321),
+ (0.837037037037037, 0.16296296296296298),
+ (0.8395061728395061, 0.16049382716049382),
+ (0.8419753086419753, 0.1580246913580247),
+ (0.8444444444444444, 0.15555555555555556),
+ (0.8469135802469135, 0.15308641975308643),
+ (0.8493827160493828, 0.1506172839506173),
+ (0.8518518518518519, 0.14814814814814814),
+ (0.854320987654321, 0.145679012345679),
+ (0.8567901234567902, 0.14320987654320988),
+ (0.8592592592592593, 0.14074074074074075),
+ (0.8617283950617284, 0.1382716049382716),
+ (0.8641975308641975, 0.13580246913580246),
+ (0.8666666666666667, 0.13333333333333333),
+ (0.8691358024691358, 0.1308641975308642),
+ (0.8716049382716049, 0.12839506172839507),
+ (0.8740740740740741, 0.1259259259259259),
+ (0.8765432098765432, 0.12345679012345678),
+ (0.8790123456790123, 0.12098765432098765),
+ (0.8814814814814815, 0.11851851851851852),
+ (0.8839506172839506, 0.11604938271604938),
+ (0.8864197530864197, 0.11358024691358025),
+ (0.8888888888888888, 0.1111111111111111),
+ (0.891358024691358, 0.10864197530864197),
+ (0.8938271604938272, 0.10617283950617284),
+ (0.8962962962962963, 0.1037037037037037),
+ (0.8987654320987655, 0.10123456790123457),
+ (0.9012345679012346, 0.09876543209876543),
+ (0.9037037037037037, 0.0962962962962963),
+ (0.9061728395061729, 0.09382716049382717),
+ (0.908641975308642, 0.09135802469135802),
+ (0.9111111111111111, 0.08888888888888889),
+ (0.9135802469135802, 0.08641975308641975),
+ (0.9160493827160494, 0.08395061728395062),
+ (0.9185185185185185, 0.08148148148148149),
+ (0.9209876543209876, 0.07901234567901234),
+ (0.9234567901234568, 0.07654320987654321),
+ (0.9259259259259259, 0.07407407407407407),
+ (0.928395061728395, 0.07160493827160494),
+ (0.9308641975308642, 0.0691358024691358),
+ (0.9333333333333333, 0.06666666666666667),
+ (0.9358024691358025, 0.06419753086419754),
+ (0.9382716049382716, 0.06172839506172839),
+ (0.9407407407407408, 0.05925925925925926),
+ (0.9432098765432099, 0.056790123456790124),
+ (0.945679012345679, 0.05432098765432099),
+ (0.9481481481481482, 0.05185185185185185),
+ (0.9506172839506173, 0.04938271604938271),
+ (0.9530864197530864, 0.04691358024691358),
+ (0.9555555555555556, 0.044444444444444446),
+ (0.9580246913580247, 0.04197530864197531),
+ (0.9604938271604938, 0.03950617283950617),
+ (0.9629629629629629, 0.037037037037037035),
+ (0.9654320987654321, 0.0345679012345679),
+ (0.9679012345679012, 0.03209876543209877),
+ (0.9703703703703703, 0.02962962962962963),
+ (0.9728395061728395, 0.027160493827160494),
+ (0.9753086419753086, 0.024691358024691357),
+ (0.9777777777777777, 0.022222222222222223),
+ (0.980246913580247, 0.019753086419753086),
+ (0.9827160493827161, 0.01728395061728395),
+ (0.9851851851851852, 0.014814814814814815),
+ (0.9876543209876543, 0.012345679012345678),
+ (0.9901234567901235, 0.009876543209876543)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">resilience_random</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x295ec0790&gt;]
+</pre></div>
+</div>
+<img alt="../_images/198ccf118cc2c34242a5ef4b69845c6ea854cfdc3c2041f04a9e9c8da0f0df32.png" src="../_images/198ccf118cc2c34242a5ef4b69845c6ea854cfdc3c2041f04a9e9c8da0f0df32.png" />
 </div>
 </div>
 </section>
@@ -571,11 +1078,47 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="n">betw</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">betw</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
     <span class="n">airport_nodes_betw</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-
-<span class="n">resilience_betw</span> <span class="o">=</span> <span class="n">net_attack</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">airport_nodes_betw</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">betw</span><span class="p">[</span><span class="mi">389</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.132272652064009
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resilience_betw</span> <span class="o">=</span> <span class="n">net_attack</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">airport_nodes_betw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">resilience_betw</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Fraction nodes in GCC&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Fraction of nodes removed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Fraction of nodes removed&#39;)
+</pre></div>
+</div>
+<img alt="../_images/5bcc6bf4f487e39e653156ead843b584c5b2bee2493aab267f5ca095d28ae4e1.png" src="../_images/5bcc6bf4f487e39e653156ead843b584c5b2bee2493aab267f5ca095d28ae4e1.png" />
 </div>
 </div>
 </section>
@@ -623,10 +1166,10 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x13fe21fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x296571c70&gt;
 </pre></div>
 </div>
-<img alt="../_images/e5c0413f3952f83b76c9da89f90aa66db5610e91dbd808ca236c0190700a7765.png" src="../_images/e5c0413f3952f83b76c9da89f90aa66db5610e91dbd808ca236c0190700a7765.png" />
+<img alt="../_images/6d16a3f5c702ba08a8de5aa586b6bdb660abd29a301dd91408420198c4717dc6.png" src="../_images/6d16a3f5c702ba08a8de5aa586b6bdb660abd29a301dd91408420198c4717dc6.png" />
 </div>
 </div>
 <p>Real networks such as the air transport network are vulnerable to targeted attacks.</p>
@@ -700,10 +1243,10 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x105526490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2966c8670&gt;
 </pre></div>
 </div>
-<img alt="../_images/6e661d2ff3a1989758e1b5ca820e3f5116da7726f37514caaa0e03de9c66e66b.png" src="../_images/6e661d2ff3a1989758e1b5ca820e3f5116da7726f37514caaa0e03de9c66e66b.png" />
+<img alt="../_images/77cb28464dca31877f7e8d5de7cd0e1f0af3b7a84430a727fb0e2acd359d2524.png" src="../_images/77cb28464dca31877f7e8d5de7cd0e1f0af3b7a84430a727fb0e2acd359d2524.png" />
 </div>
 </div>
 <p>Random networks such as the E-R network are not vulnerable to targeted attacks.</p>
@@ -776,10 +1319,10 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x13ad99a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2982526a0&gt;
 </pre></div>
 </div>
-<img alt="../_images/2b325d438dc83ea838ece4a7b8e20ed076b123213039c88bc0f993fdd3ccd603.png" src="../_images/2b325d438dc83ea838ece4a7b8e20ed076b123213039c88bc0f993fdd3ccd603.png" />
+<img alt="../_images/2afec42a478ed396f947c642c6bcd882830d774a8db9c44f9e142d44f1c417d5.png" src="../_images/2afec42a478ed396f947c642c6bcd882830d774a8db9c44f9e142d44f1c417d5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -797,6 +1340,38 @@ Populating the interactive namespace from numpy and matplotlib
 <span class="n">gs_nodes_deg</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">degree</span><span class="p">())</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">))]</span>
 <span class="n">gs_betw</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">gs</span><span class="p">)</span>
 <span class="n">gs_nodes_betw</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">gs_betw</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NetworkXError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">57</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">gs</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">configuration_model</span><span class="p">(</span><span class="n">seq</span><span class="p">[:</span><span class="mi">2000</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># we rank the nodes by degree</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">gs_nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">nodes</span><span class="p">())</span>
+
+<span class="nn">File ~/.pyenv/versions/venv_xgi/lib/python3.9/site-packages/networkx/utils/decorators.py:845,</span> in <span class="ni">argmap.__call__.&lt;locals&gt;.func</span><span class="nt">(_argmap__wrapper, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">844</span> <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">__wrapper</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">845</span>     <span class="k">return</span> <span class="n">argmap</span><span class="o">.</span><span class="n">_lazy_compile</span><span class="p">(</span><span class="n">__wrapper</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File &lt;class &#39;networkx.utils.decorators.argmap&#39;&gt; compilation 28:4,</span> in <span class="ni">argmap_configuration_model_25</span><span class="nt">(deg_sequence, create_using, seed)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">collections</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">gzip</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">itertools</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">re</span>
+
+<span class="nn">File ~/.pyenv/versions/venv_xgi/lib/python3.9/site-packages/networkx/generators/degree_seq.py:217,</span> in <span class="ni">configuration_model</span><span class="nt">(deg_sequence, create_using, seed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span> <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">deg_sequence</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Invalid degree sequence: sum of degrees must be even, not odd&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">217</span>     <span class="k">raise</span> <span class="n">nx</span><span class="o">.</span><span class="n">NetworkXError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span> <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">empty_graph</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">create_using</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">MultiGraph</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">is_directed</span><span class="p">():</span>
+
+<span class="ne">NetworkXError</span>: Invalid degree sequence: sum of degrees must be even, not odd
 </pre></div>
 </div>
 </div>
@@ -837,10 +1412,10 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x13a4679d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x298a171f0&gt;
 </pre></div>
 </div>
-<img alt="../_images/e762c236896e61cb831323a775f95c139af0bbae0262b913b345ce9d35633d3b.png" src="../_images/e762c236896e61cb831323a775f95c139af0bbae0262b913b345ce9d35633d3b.png" />
+<img alt="../_images/2afec42a478ed396f947c642c6bcd882830d774a8db9c44f9e142d44f1c417d5.png" src="../_images/2afec42a478ed396f947c642c6bcd882830d774a8db9c44f9e142d44f1c417d5.png" />
 </div>
 </div>
 </section>

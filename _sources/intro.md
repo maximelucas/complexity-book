@@ -18,7 +18,8 @@
 - Lesson 2: [Intro to networks](./slides/2_Networks_part1.pdf)
 - Lesson 3: [Random models](./slides/3_Networks_part2_random_models.pdf)
 - Lesson 4: [Growing models and assortativity](./slides/4_Networks_part3_growing_models.pdf)
-- Lesson 5: [Percolation](./slides/5_Networks_part4_percolation_and_random_walks.pdf)
+- Lesson 5: [Percolation and random walks](./slides/5_Networks_part4_percolation_and_random_walks.pdf)
+- Lesson 6: [Multilayer, hypergraphs, and synchronization](./slides/6_multilayer_networks.pdf)
 
 
 
