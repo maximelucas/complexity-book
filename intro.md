@@ -20,8 +20,9 @@
 - Lesson 4: [Growing models and assortativity](./slides/4_Networks_part3_growing_models.pdf)
 - Lesson 5: [Percolation and random walks](./slides/5_Networks_part4_percolation_and_random_walks.pdf)
 - Lesson 6: [Multilayer, hypergraphs, and synchronization](./slides/6_multilayer_networks.pdf)
+- Lesson 7: [Temporal graphs](./slides/7_temporal-graphs.pdf)
 
 
+## Notes
 
-<!-- [pdf di prova](./slides/prova.pdf) -->
-<!-- (./slides/03_What complexity science is, and why.pdf) -->
+- Lesson 7: [Temporal graphs](https://lorenzodallamico.github.io/course/Ch1.pdf)

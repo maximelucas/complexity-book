@@ -53,3 +53,7 @@ parts:
     - file: 7-hypergraphs/nb20_case_study_zhang2022
 
 
+- caption: Temporal graphs
+  chapters:
+    - file: 8-temporal_networks/TemporalNet
+    - file: 8-temporal_networks/TNet
