@@ -21,8 +21,10 @@
 - Lesson 5: [Percolation and random walks](./slides/5_Networks_part4_percolation_and_random_walks.pdf)
 - Lesson 6: [Multilayer, hypergraphs, and synchronization](./slides/6_multilayer_networks.pdf)
 - Lesson 7: [Temporal graphs](./slides/7_temporal-graphs.pdf)
+- Lesson 8: [Epidemics on graphs](./slides/8_epidemics_on_networks.pdf)
 
 
 ## Notes
 
 - Lesson 7: [Temporal graphs](https://lorenzodallamico.github.io/course/Ch1.pdf)
+- Lesson 8: [Epidemics on graphs](https://lorenzodallamico.github.io/course/Ch2.pdf)
