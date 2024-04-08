@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>14. Source code &#8212; Complexity in social systems</title>
+    <title>19. Source code &#8212; Complexity in social systems</title>
   
   
   
@@ -63,11 +63,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '8-temporal_networks/TNet';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '9-epidemic_spreading/utils';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. Epidemics on networks" href="../9-epidemic_spreading/Epidemics.html" />
-    <link rel="prev" title="13. Temporal networks" href="TemporalNet.html" />
+    <link rel="prev" title="15. Epidemics on networks" href="Epidemics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,17 +193,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../7-hypergraphs/nb20_case_study_zhang2022.html">12. Case study: sync</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Temporal graphs</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="TemporalNet.html">13. Temporal networks</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Source code</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../8-temporal_networks/TemporalNet.html">13. Temporal networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8-temporal_networks/TNet.html">14. Source code</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Epidemics on networks</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../9-epidemic_spreading/Epidemics.html">15. Epidemics on networks</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Epidemics.html">15. Epidemics on networks</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../9-epidemic_spreading/utils.html">19. Source code</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Source code</a></li>
 </ul>
 
     </div>
@@ -276,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/maximelucas/complexity-book/issues/new?title=Issue%20on%20page%20%2F8-temporal_networks/TNet.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/maximelucas/complexity-book/issues/new?title=Issue%20on%20page%20%2F9-epidemic_spreading/utils.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -306,7 +305,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/8-temporal_networks/TNet.md" target="_blank"
+      <li><a href="../_sources/9-epidemic_spreading/utils.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -403,106 +402,47 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="source-code">
-<h1><span class="section-number">14. </span>Source code<a class="headerlink" href="#source-code" title="Permalink to this heading">#</a></h1>
-<p>Here you can find some useful functions used in the next notebook. You should copy the code down below and and save it in a file named <code class="docutils literal notranslate"><span class="pre">Tnet.py</span></code> inside the folder <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
-<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span><span class="p">,</span> <span class="n">diags</span>
+<h1><span class="section-number">19. </span>Source code<a class="headerlink" href="#source-code" title="Permalink to this heading">#</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">eigsh</span><span class="p">,</span> <span class="n">eigs</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">bmat</span><span class="p">,</span> <span class="n">diags</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
-<span class="k">def</span> <span class="nf">ComputeReachabilityVector</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;Given a temporal network in the form ijt contained in the dataframe df, this function computes the reachability of time-respecting walks of length T</span>
+<span class="k">def</span> <span class="nf">SpectralRadius</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;This function computes the spectral radius of an Hermitian matrix A</span>
+<span class="sd">    Use: ρ = SpectralRadius(A)</span>
 <span class="sd">    </span>
-<span class="sd">    Use: reachability = ComputeReachabilityVector(df, T)</span>
-<span class="sd">    </span>
-<span class="sd">    Inputs:</span>
-<span class="sd">        * df (pandas dataframe): temporal network in the form ijt</span>
-<span class="sd">        * T (int): number of steps in the walk</span>
+<span class="sd">    Input: </span>
+<span class="sd">        * A (scipy sparse array)</span>
 <span class="sd">        </span>
-<span class="sd">    Outputs:</span>
-<span class="sd">        * reachability (array): returns the T reachability values for each time in [1,T]</span>
+<span class="sd">    Output:</span>
+<span class="sd">        * ρ (float)</span>
+<span class="sd">        </span>
 <span class="sd">    &#39;&#39;&#39;</span>
 
-    <span class="c1"># create a mapping between the nodes and integers</span>
-    <span class="n">all_nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">]])</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_nodes</span><span class="p">)</span>
-    
-    <span class="c1"># shift the smallest time-stamp to 0</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">t</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="n">ρ</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eigsh</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">which</span> <span class="o">=</span> <span class="s1">&#39;LM&#39;</span><span class="p">)</span>
 
-    <span class="c1"># split the edge list according to the time stamp</span>
-    <span class="n">dft</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">t</span> <span class="o">==</span> <span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">)]</span>
-    
-    <span class="c1"># create a list of snapshot adjacency matrices in which each node is connected to itself</span>
-    <span class="n">At</span> <span class="o">=</span> <span class="p">[</span><span class="n">diags</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">)]</span>
-
-    <span class="c1"># compute the snapshot adjacency matrices</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dft</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">A</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dft</span><span class="p">[</span><span class="n">t</span><span class="p">])),</span> <span class="p">(</span><span class="n">dft</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">.</span><span class="n">i</span><span class="p">,</span> <span class="n">dft</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">.</span><span class="n">j</span><span class="p">)),</span> <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
-            <span class="n">At</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span>
-        
-    <span class="c1"># compute the reachability vector given the adjacency matrices list</span>
-    <span class="n">reachability</span> <span class="o">=</span> <span class="n">ReachabilityFromAdjacencyList</span><span class="p">(</span><span class="n">At</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">reachability</span>
+    <span class="k">return</span> <span class="n">ρ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">ReachabilityFromAdjacencyList</span><span class="p">(</span><span class="n">At</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;This function computes the reachability of time respecting paths given a sequence of adjacency matrices with self loops</span>
+<span class="k">def</span> <span class="nf">SpectralRadiusNB</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;This function computes the spectral radius of the non-backtracking matrix</span>
+<span class="sd">    Use: ρ = SpectralRadiusNB(A)</span>
 <span class="sd">    </span>
-<span class="sd">    Use: reachability = ReachabilityFromAdjacencyList(At)</span>
-<span class="sd">    </span>
-<span class="sd">    Inputs:</span>
-<span class="sd">        * At (list of sparse arrays): the entries of this list are the adjacency matrices of each snapshot</span>
+<span class="sd">    Input:</span>
+<span class="sd">        * A (scipy sparse array): graph adjacency matrix</span>
 <span class="sd">        </span>
-<span class="sd">    Outputs:</span>
-<span class="sd">        * reachability (array): returns the T reachability values for each time in [1,T], where T is the number of time frames</span>
-<span class="sd">    </span>
+<span class="sd">    Outoput:</span>
+<span class="sd">        * ρ (float)</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    
-    <span class="c1"># compute the reachability matrix R_{ij}(t) = 1  if j can be reached from i in t steps or fewer.</span>
-    <span class="n">R</span> <span class="o">=</span> <span class="p">[</span><span class="n">At</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">At</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Progress: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="n">R</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">At</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="nd">@R</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">sign</span><span class="p">())</span>
-        
-    <span class="c1"># compute the average of the reachability matrix</span>
-    <span class="n">reachability</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">R</span><span class="p">])</span>
-    
-    <span class="k">return</span> <span class="n">reachability</span>
 
+    <span class="n">n</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">A</span><span class="nd">@np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">Id</span> <span class="o">=</span> <span class="n">diags</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">Bp</span> <span class="o">=</span> <span class="n">bmat</span><span class="p">([[</span><span class="n">A</span><span class="p">,</span> <span class="o">-</span><span class="n">Id</span><span class="p">],</span> <span class="p">[</span><span class="n">D</span><span class="o">-</span><span class="n">Id</span><span class="p">,</span> <span class="kc">None</span><span class="p">]])</span>
 
-<span class="k">def</span> <span class="nf">ComputeIntereventStatistic</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;Given a contact network in the format ijtτ, this function computes the time elapsed between the end of an </span>
-<span class="sd">    interaction between two nodes (ij) and the beginning of a new one between the same nodes. </span>
-<span class="sd">    This is repeated for all nodes</span>
-<span class="sd">    </span>
-<span class="sd">    Use: intervals = ComputeIntereventStatistic(df)</span>
-<span class="sd">    </span>
-<span class="sd">    Inputs:</span>
-<span class="sd">        * df (pandas dataframe): temporal network in the format ijtτ</span>
-<span class="sd">        </span>
-<span class="sd">    Outpus:</span>
-<span class="sd">        * intervals (array): list of interevent values for all pairs&#39;&#39;&#39;</span>
-    
-    <span class="c1"># index the dataframe by the contact indeces</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">],</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-    <span class="n">all_pairs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-    <span class="n">intervals</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1"># for each pair, select only the entries of df involving that pair</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pair</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_pairs</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Progress: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">all_pairs</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="n">ddf</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span>
-        
-        <span class="c1"># compute and store the interevent duration</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ddf</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">intervals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ddf</span><span class="o">.</span><span class="n">t</span> <span class="o">+</span> <span class="n">ddf</span><span class="o">.</span><span class="n">τ</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">ddf</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="mi">1</span><span class="p">))[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-   
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">intervals</span><span class="p">)</span>
-
+    <span class="n">ρB</span><span class="p">,</span> <span class="n">_</span>  <span class="o">=</span> <span class="n">eigs</span><span class="p">(</span><span class="n">Bp</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">which</span> <span class="o">=</span> <span class="s1">&#39;LM&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ρB</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">real</span>
 </pre></div>
 </div>
 </section>
@@ -520,7 +460,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./8-temporal_networks"
+            path: "./9-epidemic_spreading"
         },
         predefinedOutput: true
     }
@@ -538,22 +478,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="TemporalNet.html"
+       href="Epidemics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Temporal networks</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../9-epidemic_spreading/Epidemics.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">15. </span>Epidemics on networks</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

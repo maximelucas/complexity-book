@@ -27,4 +27,5 @@
 ## Notes
 
 - Lesson 7: [Temporal graphs](https://lorenzodallamico.github.io/course/Ch1.pdf)
-- Lesson 8: [Epidemics on graphs](https://lorenzodallamico.github.io/course/Ch2.pdf)
+- Lesson 8: [Epidemics on networks](https://lorenzodallamico.github.io/course/Ch2.pdf)
+- Lesson 9: [Cavity method](https://lorenzodallamico.github.io/course/Ch3.pdf)
