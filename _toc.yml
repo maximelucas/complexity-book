@@ -57,3 +57,8 @@ parts:
   chapters:
     - file: 8-temporal_networks/TemporalNet
     - file: 8-temporal_networks/TNet
+
+- caption: Epidemics on networks
+  chapters:
+  - file: 9-epidemic_spreading/Epidemics
+  - file: 9-epidemic_spreading/utils
