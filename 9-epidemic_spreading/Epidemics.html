@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '9-epidemic_spreading/Epidemics';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="19. Source code" href="utils.html" />
+    <link rel="next" title="16. Source code" href="utils.html" />
     <link rel="prev" title="14. Source code" href="../8-temporal_networks/TNet.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -203,10 +203,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Epidemics on networks</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Epidemics on networks</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="utils.html">19. Source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">16. Source code</a></li>
 </ul>
 
     </div>
@@ -451,16 +448,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">15. Epidemics on networks</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sir-model-an-a-dense-erdos-renyi-graph">15.1. SIR model an a dense Erdos-Renyi graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold">15.2. Epidemic threshold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitting-time">15.3. Hitting time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#immunization">15.4. Immunization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-spectrum-of-b">15.5. Computing the spectrum of <span class="math notranslate nohighlight">\(B\)</span></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hitting-time">16. Hitting time</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#immunization">17. Immunization</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-spectrum-of-b">18. Computing the spectrum of <span class="math notranslate nohighlight">\(B\)</span></a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -560,13 +553,15 @@ document.write(`
 <h2><span class="section-number">15.2. </span>Epidemic threshold<a class="headerlink" href="#epidemic-threshold" title="Permalink to this heading">#</a></h2>
 <p>We now test the epidemic threshold on a configuration model and compare the empirical results with theory. We run the experiment for both a sparse and a dense graph to see the difference between these two regimes.</p>
 <p>Under the naive mean field approximation, we saw that the critical <span class="math notranslate nohighlight">\(R_0\)</span> at which the transition occurs is</p>
-<p>\begin{align*}
+<div class="math notranslate nohighlight">
+\[
 R_0 = \frac{\rho(A)\beta}{\mu},
-\end{align*}</p>
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(\rho(A)\)</span> is the spectral radius of the graph adjacency matrix. For <span class="math notranslate nohighlight">\(R_0 &gt; 1\)</span> we exect a non-neglibible fraction of nodes to get infected at some point, while for <span class="math notranslate nohighlight">\(R_0 &lt; 1\)</span> we expect the epimic to die out. For a <strong>dense</strong> configuration model</p>
-<p>\begin{align*}
+<div class="math notranslate nohighlight">
+\[
 \rho(A) \approx \kappa = \frac{\langle \mathbf{d}^2 \rangle}{\langle \mathbf{d}\rangle}.
-\end{align*}</p>
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(\langle \cdot\rangle\)</span> indicates the empirical average and <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> is the degree vector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -672,9 +667,10 @@ R_0 = \frac{\rho(A)\beta}{\mu},
 </div>
 </div>
 <p>From this plot we can see that the prediction of naive mean field is accurate on the dense graph, but not on the sparse one. Let us now use the predicted <span class="math notranslate nohighlight">\(R_0\)</span> according to the cavity method, that is accurate on sparse graphs as well</p>
-<p>\begin{align}
+<div class="math notranslate nohighlight">
+\[
 R_0 = \frac{\beta(\rho(B)-1)}{\mu},
-\end{align}</p>
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(B\)</span> is the non-backtracking matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -700,9 +696,8 @@ R_0 = \frac{\beta(\rho(B)-1)}{\mu},
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="hitting-time">
-<h1><span class="section-number">16. </span>Hitting time<a class="headerlink" href="#hitting-time" title="Permalink to this heading">#</a></h1>
+<section id="hitting-time">
+<h2><span class="section-number">15.3. </span>Hitting time<a class="headerlink" href="#hitting-time" title="Permalink to this heading">#</a></h2>
 <p>We define the hitting time as the time at which a node gets infected. We show on a heterogeneous network that the hitting time correlates negatively with the degree, meaning that nodes with a large degree are the first ones to be hit and then they propagate the virus in the whole network, thus making the <span class="math notranslate nohighlight">\(R_0\)</span> larger in a heterogeneous network for fixed <span class="math notranslate nohighlight">\(\beta, \mu, \langle d \rangle\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -789,12 +784,13 @@ R_0 = \frac{\beta(\rho(B)-1)}{\mu},
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="immunization">
-<h1><span class="section-number">17. </span>Immunization<a class="headerlink" href="#immunization" title="Permalink to this heading">#</a></h1>
+<section id="immunization">
+<h2><span class="section-number">15.4. </span>Immunization<a class="headerlink" href="#immunization" title="Permalink to this heading">#</a></h2>
 <p>We now consider the outcome of immunization. Practically, a fraction o the population (25%) is vaccinated and cannot get infected. We saw that in this case, letting <span class="math notranslate nohighlight">\(\mathbf{s}\)</span> be a Boolean vector so that <span class="math notranslate nohighlight">\(s_i = 0\)</span> is <span class="math notranslate nohighlight">\(i\)</span> is vaccinated, then the <span class="math notranslate nohighlight">\(R_0\)</span> becomes (from the cavity method)</p>
-<p>\begin{align*}
+<div class="math notranslate nohighlight">
+\[
 R_0 = \frac{\beta}{\mu}\cdot\left(\frac{\mathbf{s}^T\mathbf{d}^2}{\mathbf{1}_n^T\mathbf{d}}-1\right).
-\end{align*}</p>
+\]</div>
 <p>We compare three curves: no vaccination, random vaccination and targeted vaccination, in which the probability of being vaccinated is proportional to the node degree. Note that</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -909,8 +905,8 @@ R_0 = \frac{\beta}{\mu}\cdot\left(\frac{\mathbf{s}^T\mathbf{d}^2}{\mathbf{1}_n^T
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="computing-the-spectrum-of-b">
-<h1><span class="section-number">18. </span>Computing the spectrum of <span class="math notranslate nohighlight">\(B\)</span><a class="headerlink" href="#computing-the-spectrum-of-b" title="Permalink to this heading">#</a></h1>
+<section id="computing-the-spectrum-of-b">
+<h2><span class="section-number">15.5. </span>Computing the spectrum of <span class="math notranslate nohighlight">\(B\)</span><a class="headerlink" href="#computing-the-spectrum-of-b" title="Permalink to this heading">#</a></h2>
 <p>We compare the computation time of three approaches: one in which <span class="math notranslate nohighlight">\(B\)</span> is built in a naive way from its definition; one in which the relation <span class="math notranslate nohighlight">\(B = Q^TT-M\)</span> is used; finally one in which <span class="math notranslate nohighlight">\(B_{\rm p}\)</span> is deployed to compute <span class="math notranslate nohighlight">\(\rho(B)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1041,6 +1037,7 @@ Computation time: 0.08565306663513184
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1086,7 +1083,7 @@ Computation time: 0.08565306663513184
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Source code</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Source code</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1105,16 +1102,12 @@ Computation time: 0.08565306663513184
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">15. Epidemics on networks</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sir-model-an-a-dense-erdos-renyi-graph">15.1. SIR model an a dense Erdos-Renyi graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#epidemic-threshold">15.2. Epidemic threshold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hitting-time">15.3. Hitting time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#immunization">15.4. Immunization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-spectrum-of-b">15.5. Computing the spectrum of <span class="math notranslate nohighlight">\(B\)</span></a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hitting-time">16. Hitting time</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#immunization">17. Immunization</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-spectrum-of-b">18. Computing the spectrum of <span class="math notranslate nohighlight">\(B\)</span></a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
