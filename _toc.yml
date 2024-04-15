@@ -62,3 +62,8 @@ parts:
   chapters:
   - file: 9-epidemic_spreading/Epidemics
   - file: 9-epidemic_spreading/utils
+
+- caption: Graph Fourier transform
+  chapters:
+  - file: 11-GFT/GFT
+  - file: 11-GFT/GFT_utils
