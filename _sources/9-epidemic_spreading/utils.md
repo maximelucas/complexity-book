@@ -42,4 +42,4 @@ def SpectralRadiusNB(A):
 
     ρB, _  = eigs(Bp, k = 1, which = 'LM')
     return ρB[0].real
-```
+``` 
