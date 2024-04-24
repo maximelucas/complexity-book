@@ -20,10 +20,11 @@
 - Lesson 4: [Growing models and assortativity](./slides/4_Networks_part3_growing_models.pdf)
 - Lesson 5: [Percolation and random walks](./slides/5_Networks_part4_percolation_and_random_walks.pdf)
 - Lesson 6: [Multilayer, hypergraphs, and synchronization](./slides/6_multilayer_networks.pdf)
-- Lesson 7: [Temporal graphs](./slides/7_temporal-graphs.pdf)
+<!-- - Lesson 7: [Temporal graphs](./slides/7_temporal-graphs.pdf)
 - Lesson 8: [Epidemics on graphs](./slides/8_epidemics_on_networks.pdf)
 - Lesson 10: [Community detection 1](./slides/10_CD_1.pdf)
-- Lesson 11: [Graph Fourier transform](./slides/11_GFT.pdf)
+- Lesson 11: [Graph Fourier transform](./slides/11_GFT.pdf) -->
+ 
 
 
 ## Notes
@@ -33,3 +34,4 @@
 - Lesson 9: [Cavity method](https://lorenzodallamico.github.io/course/Ch3.pdf)
 - Lesson 11: [Graph Fourier transform](https://lorenzodallamico.github.io/course/Ch4.pdf)
 - Lesson 10, 12, 13: [Community detection](https://lorenzodallamico.github.io/course/Ch5.pdf)
+- Lesson 14 [Node2Vec](https://lorenzodallamico.github.io/course/Ch6.pdf)
