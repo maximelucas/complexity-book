@@ -67,3 +67,12 @@ parts:
   chapters:
   - file: 11-GFT/GFT
   - file: 11-GFT/GFT_utils
+
+- caption: Community Detection
+  chapters:
+  - file: 12-CD/CD_note
+  - file: 12-CD/CD
+
+- caption: Node2Vec
+  chapters:
+  - file: 13-N2V/N2V
